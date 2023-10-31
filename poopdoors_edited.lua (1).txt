@@ -446,7 +446,9 @@ window_player:AddButton({
 })
 
 --[[window_player.label("\nif you use it anyone will be able to join your game and expose you of exploiting",32)
-window_player.button("rejoin revive", function()
+window_player:AddButton({
+	Name = "Revive",
+	Callback = function()
 	if #game:GetService("Players"):GetPlayers() <= 1 or #game:GetService("Players"):GetPlayers() == 0 then
 		game:GetService("Players").LocalPlayer:Kick("\nRejoining...")
 		task.wait()
@@ -1157,9 +1159,6 @@ end)
 
 
 if hookmetamethod and newcclosure and getnamecallmethod then
-	window_entities:AddLabel({ Name = "Do not click when playing the" })
-	window_entities:AddLabel({ Name = "heartbeat minigame if you have" })
-	window_entities:AddLabel({ Name = "'always win heartbeat' on!" })
 	window_entities:AddToggle({
 		Name = "Always win Heartbeat minigame",
 		Value = false,
@@ -1267,7 +1266,10 @@ workspace.ChildAdded:Connect(function(inst)
 end)
 
 --[[if hookmetamethod and newcclosure and getnamecallmethod then
-	window_entities.toggle("no eyes damage (didnt tested it)",false,function(val)
+	window_entities:AddToggle({
+	Name = "No Eyes Damage",
+	Value = false,
+	Callback = function(val)
 		flags.noeyesdamage = val
 	end)
 
@@ -1745,7 +1747,7 @@ if fireproximityprompt then
 											until not v:IsDescendantOf(workspace) or not prompt:IsDescendantOf(workspace) or not flags.draweraura
 										end)
 									end)
-								elseif v.Name == "GoldPile" then
+								elseif v.Name == "GoldPile" or v.Name == "Hitbox" then
 									pcall(function()
 										local prompt = v:WaitForChild("LootPrompt")
 										local interactions = prompt:GetAttribute("Interactions")
@@ -1997,12 +1999,6 @@ if #game.Players:GetChildren() <= 1 or #game.Players:GetChildren() == 0 then
 end
 
 
-window_anticheatbyppasses:AddLabel({ Name = "Method 1 Info:"})
-window_anticheatbyppasses:AddLabel({ Name = "This method will make it so"})
-window_anticheatbyppasses:AddLabel({ Name = " you CANT pick up ANYTHING so"})
-window_anticheatbyppasses:AddLabel({ Name = " only do this in multiplayer." })
-window_anticheatbyppasses:AddLabel({ Name = "If you use this in rooms you" })
-window_anticheatbyppasses:AddLabel({ Name = " will NOT get the a-1000 badge!" })
 window_anticheatbyppasses:AddButton({
 	Name = "Method 1",
 	Callback = function()
