@@ -2,7 +2,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib("hardcore v5 hub", "LightTheme")
 local Tab = Window:NewTab("hardcore v5 entities")
 local Section = Tab:NewSection("hardcore v5 entities")
-Section:NewButton("spawn ripper v5", "ButtonInfo", function()
+Section:NewButton("Spawn Rullet", "ButtonInfo", function()
 local Creator = loadstring(game:HttpGet("https://pastebin.com/raw/txV1ZG7S"))() 
 -- Create entity
 
@@ -15,13 +15,13 @@ local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(
 TW:Play()
 
 local entity = Creator.createEntity({
-    CustomName = "Ripper", -- Custom name of your entity
+    CustomName = "Rullet", -- Custom name of your entity
     Model = "rbxassetid:////12262768551", -- Can be GitHub file or rbxassetid
-    Speed = 185, -- Percentage, 100 = default Rush speed
+    Speed = 50, -- Percentage, 100 = default Rush speed
     DelayTime = 9.8, -- Time before starting cycles (seconds)
     HeightOffset = 6,
-    CanKill = true,
-    KillRange = 40,
+    CanKill = false,
+    KillRange = 20,
     BreakLights = false,
     BackwardsMovement = false,
     FlickerLights = {
@@ -63,7 +63,7 @@ local entity = Creator.createEntity({
             },
         },
     },
-    CustomDialog = {"You died to who you call Ripper.", "You can tell his presence by the lights and his scream.", "Hide when he does this!"}, -- Custom death message
+    CustomDialog = {"You died to who you call Rullet.", "You can tell his presence by the lights and his scream.", "Hide when he does this!"}, -- Custom death message
 })
  
 -----[[ Advanced ]]-----
